@@ -1,0 +1,45 @@
+{
+  "_info": "Liste des pages surveillées. Vous pouvez remplacer une URL par la page exacte de l'événement (copiez-la depuis votre navigateur). Mettez \"actif\": false pour désactiver un site.",
+  "filtres": {
+    "prix_max_euros": null,
+    "mots_cles_obligatoires": []
+  },
+  "sites": [
+    {
+      "nom": "AXS (officiel)",
+      "url": "https://www.axs.com/CelineParis",
+      "officiel": true,
+      "actif": true
+    },
+    {
+      "nom": "AXS – page artiste (officiel)",
+      "url": "https://www.axs.com/fr/artists/104051",
+      "officiel": true,
+      "actif": true
+    },
+    {
+      "nom": "Ticketmaster France (officiel)",
+      "url": "https://www.ticketmaster.fr/fr/recherche?q=celine%20dion",
+      "officiel": true,
+      "actif": true
+    },
+    {
+      "nom": "Fnac Spectacles (officiel)",
+      "url": "https://www.fnacspectacles.com/search/?searchterm=celine%20dion",
+      "officiel": true,
+      "actif": true
+    },
+    {
+      "nom": "Viagogo (non officiel)",
+      "url": "https://www.viagogo.fr/secure/search?q=celine%20dion",
+      "officiel": false,
+      "actif": true
+    },
+    {
+      "nom": "StubHub (non officiel)",
+      "url": "https://www.stubhub.com/secure/search?q=celine%20dion",
+      "officiel": false,
+      "actif": true
+    }
+  ]
+}
