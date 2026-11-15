@@ -1,0 +1,29 @@
+{
+ "sites": {
+  "AXS (officiel)": {
+   "status": "bloqué",
+   "offer_keys": []
+  },
+  "AXS – page artiste (officiel)": {
+   "status": "bloqué",
+   "offer_keys": []
+  },
+  "Ticketmaster France (officiel)": {
+   "status": "bloqué",
+   "offer_keys": []
+  },
+  "Fnac Spectacles (officiel)": {
+   "status": "erreur",
+   "offer_keys": []
+  },
+  "Viagogo (non officiel)": {
+   "status": "bloqué",
+   "offer_keys": []
+  },
+  "StubHub (non officiel)": {
+   "status": "bloqué",
+   "offer_keys": []
+  }
+ },
+ "last_run_day": "2026-11-15"
+}
