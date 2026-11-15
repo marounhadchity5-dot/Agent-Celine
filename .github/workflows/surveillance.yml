@@ -1,0 +1,50 @@
+name: Surveillance billets Céline Dion
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # toutes les 15 minutes (GitHub peut décaler de quelques minutes)
+  workflow_dispatch: {}       # bouton « Run workflow » pour lancer à la main
+
+permissions:
+  contents: write             # pour enregistrer state.json (mémoire de l'agent)
+
+concurrency:
+  group: surveillance-celine
+  cancel-in-progress: false
+
+jobs:
+  verifier:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Installer les dépendances
+        run: |
+          pip install -r requirements.txt
+          python -m playwright install --with-deps chromium
+
+      - name: Vérifier les sites
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          ALERT_TO: ${{ secrets.ALERT_TO }}
+        run: python celine_watch.py
+
+      - name: Enregistrer la mémoire de l'agent
+        run: |
+          git config user.name "agent-celine"
+          git config user.email "actions@users.noreply.github.com"
+          git add state.json
+          if git diff --cached --quiet; then
+            echo "Rien de nouveau à enregistrer."
+          else
+            git commit -m "Mise à jour de la mémoire de l'agent"
+            git pull --rebase --autostash || true
+            git push
+          fi
